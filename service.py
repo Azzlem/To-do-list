@@ -1,8 +1,8 @@
 from datetime import datetime
-from sqlalchemy import text
+
 import psycopg2
 
-import settings
+from config.settings import query_insert, query_create, query_select_false, query_select_true
 
 
 def connect_to_db():
@@ -13,7 +13,7 @@ def connect_to_db():
 
 def create_base_if_not_exists():
     conn, cur = connect_to_db()
-    cur.execute(settings.query_create)
+    cur.execute(query_create)
     conn.commit()
     cur.close
     conn.close()
@@ -28,23 +28,23 @@ def get_values(name: str, description: str, bool: bool):
 
 def insert_values(values: tuple):
     conn, cur = connect_to_db()
-    query = settings.query_insert
+    query = query_insert
     cur.execute(query, values)
     conn.commit()
     cur.close
     conn.close()
 
-def select_values(bool: bool):
+
+def select_values(answer: bool):
     conn, cur = connect_to_db()
-    if bool == True:
-        query = settings.query_select_true
+    if answer:
+        query = query_select_true
 
     else:
-        query = settings.query_select_false
+        query = query_select_false
     cur.execute(query)
     rows = cur.fetchall()
 
     cur.close
     conn.close()
     return rows
-
