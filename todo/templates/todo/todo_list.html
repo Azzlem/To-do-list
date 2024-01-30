@@ -1,0 +1,25 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+    <div class="row justify-content-center">
+        {% for object in object_list %}
+            <div class="col-md-4 col-lg-3 mb-4">
+                <div class="card shadow mx-3">
+                    <div class="card-body">
+                        <h5 class="card-title text-center font-weight-bold mb-3">{{ object.title }}</h5>
+                        <p class="card-text text-center mb-4">{{ object.description }}</p>
+                        {% if object.completed %}
+                            <p class="text-success text-center mb-4">Исполнено</p>
+                        {% else %}
+                            <p class="text-warning text-center mb-4">В работе</p>
+                        {% endif %}
+                        <a class="btn btn-lg btn-block btn-outline-info"
+                           href="{% url 'todo:todo_update' object.pk %}">Редактировать</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -36,8 +36,8 @@
 
         .button {
             padding: 10px 20px;
-            background-color: #007bff;
-            color: #ffffff;
+            background-color: #f5e3b3; /* Бежевый цвет фона кнопок */
+            color: #000000; /* Черный цвет текста кнопок */
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -45,9 +45,10 @@
         }
 
         .button:hover {
-            background-color: #0056b3;
+            background-color: #e1c084; /* Измененный бежевый цвет фона кнопок при наведении */
         }
     </style>
+
 </head>
 <body>
 <div class="container">
@@ -55,8 +56,7 @@
 
     <div class="button-container">
         <a class="button" href="{% url 'todo:todo_list' %}" role="button">Список дел</a>
-        <button class="button">Button 2</button>
-        <button class="button">Button 3</button>
+        <a class="button" href="{% url 'todo:todo_form' %}" role="button">Создать дело</a>
         <button class="button">Button 4</button>
         <button class="button">Button 5</button>
     </div>
