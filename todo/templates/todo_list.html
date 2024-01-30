@@ -2,15 +2,13 @@
 
 {% block content %}
 
-    <div class="row">
+    <div class="row justify-content-center">
         {% for object in object_list %}
-            <div class="col-sm-3 mb-4">
-                <div class="card bg-primary text-white">
+            <div class="col-md-4 col-lg-3 mb-4">
+                <div class="card text-white shadow {% if object.completed %}bg-primary{% else %}bg-warning{% endif %} mx-3">
                     <div class="card-body">
-                        <h5 class="card-title text-center">{{ object.title }}</h5>
-                        <p class="card-text text-center">{{ object.description }}</p>
-                        <p class="card-text text-center">{% if object.completed %}Завершено{% else %}Не
-                            завершено{% endif %}</p>
+                        <h5 class="card-title text-center font-weight-bold mb-3">{{ object.title }}</h5>
+                        <p class="card-text text-center mb-4">{{ object.description }}</p>
                     </div>
                 </div>
             </div>
@@ -18,3 +16,5 @@
     </div>
 
 {% endblock %}
+
+
