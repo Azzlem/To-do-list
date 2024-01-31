@@ -9,7 +9,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            background-color: #f8f9fa; /* Приятный светло-серый цвет фона */
             margin: 0;
             padding: 0;
             text-align: center;
@@ -20,12 +20,12 @@
             margin: 50px auto;
             padding: 20px;
             background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px; /* Более скругленные углы формы */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Легкая тень */
         }
 
         h1 {
-            color: #333333;
+            color: #343a40; /* Темно-серый цвет заголовка */
         }
 
         .button-container {
@@ -36,23 +36,23 @@
 
         .button {
             padding: 10px 20px;
-            background-color: #f5e3b3; /* Бежевый цвет фона кнопок */
-            color: #000000; /* Черный цвет текста кнопок */
+            background-color: #007bff; /* Яркий синий цвет фона кнопок */
+            color: #ffffff; /* Белый цвет текста кнопок */
             border: none;
-            border-radius: 5px;
+            border-radius: 8px; /* Более скругленные углы кнопок */
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
         .button:hover {
-            background-color: #e1c084; /* Измененный бежевый цвет фона кнопок при наведении */
+            background-color: #0056b3; /* Измененный синий цвет фона кнопок при наведении */
         }
     </style>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
 </head>
 <body>
 <div class="container">
-    <h1>Welcome to My Beautiful Website</h1>
+    <h1>Welcome to TO-DO-LIST</h1>
 
     <div class="button-container">
         <a class="button" href="{% url 'todo:todo_list' %}" role="button">Список дел</a>
