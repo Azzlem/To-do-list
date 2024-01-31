@@ -16,6 +16,9 @@
                         {% endif %}
                         <a class="btn btn-lg btn-block btn-outline-info"
                            href="{% url 'todo:todo_update' object.pk %}">Редактировать</a>
+                        <a class="btn btn-lg btn-block btn-outline-info"
+                           href="{% url 'todo:todo_delete' object.pk %}">Удалить</a>
+
                     </div>
                 </div>
             </div>

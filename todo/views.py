@@ -30,9 +30,13 @@ class TodoUpdateView(UpdateView):
     form_class = TodoForm
     template_name = "todo/todo_update_form.html"
 
-    def get_form(self, form_class=None):
-        form = super(TodoUpdateView, self).get_form(form_class)
-        return form
+    def get_success_url(self):
+        return reverse('todo:todo_list')
+
+
+class TodoDeleteView(DeleteView):
+    model = Todo
+    template_name = 'todo/todo_confirm_delete.html'
 
     def get_success_url(self):
         return reverse('todo:todo_list')
