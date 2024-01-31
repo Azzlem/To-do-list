@@ -9,11 +9,7 @@
                         <div>
                             <h5 class="card-title text-center font-weight-bold mb-3">{{ object.title }}</h5>
                             <p class="card-text text-center mb-4">{{ object.description }}</p>
-                            {% if object.completed %}
-                                <p class="text-success text-center mb-4">Исполнено</p>
-                            {% else %}
-                                <p class="text-warning text-center mb-4">В работе</p>
-                            {% endif %}
+
                         </div>
                         <div>
                             <a class="btn btn-lg btn-block btn-outline-primary"
@@ -32,5 +28,3 @@
     </div>
 
 {% endblock %}
-
-

@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Beautiful Website</title>
+    <title>TO-DO-LIST</title>
     <!-- Подключение Bootstrap CSS (если еще не подключено) -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous"/>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa; /* Приятный светло-серый цвет фона */
+            background-color: #f5e3b3; /* Приятный светло-серый цвет фона */
             margin: 0;
             padding: 0;
             text-align: center;
@@ -19,7 +20,7 @@
             max-width: 600px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #ffffff;
+            background-color: #ffffff; /* Бежевый цвет фона контейнера */
             border-radius: 15px; /* Более скругленные углы формы */
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Легкая тень */
         }
@@ -30,35 +31,44 @@
 
         .button-container {
             display: flex;
-            justify-content: space-around; /* Равномерное распределение по горизонтали */
+            justify-content: space-between; /* Равномерное распределение по горизонтали */
             margin-top: 20px;
         }
 
         .button {
             padding: 10px 20px;
-            background-color: #007bff; /* Яркий синий цвет фона кнопок */
             color: #ffffff; /* Белый цвет текста кнопок */
             border: none;
             border-radius: 8px; /* Более скругленные углы кнопок */
             cursor: pointer;
             transition: background-color 0.3s ease;
+            margin-right: 5px; /* Отступ между кнопками */
         }
 
-        .button:hover {
-            background-color: #0056b3; /* Измененный синий цвет фона кнопок при наведении */
+        .btn-primary {
+            background-color: #007bff; /* Яркий синий цвет фона кнопок */
         }
+
+        .btn-warning {
+            background-color: #f5e3b3; /* Жёлтый цвет фона кнопок */
+        }
+
+        .btn-danger {
+            background-color: #dc3545; /* Красный цвет фона кнопок */
+        }
+
+
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
 </head>
 <body>
 <div class="container">
     <h1>Welcome to TO-DO-LIST</h1>
 
     <div class="button-container">
-        <a class="button" href="{% url 'todo:todo_list' %}" role="button">Список дел</a>
-        <a class="button" href="{% url 'todo:todo_form' %}" role="button">Создать дело</a>
-        <button class="button">Button 4</button>
-        <button class="button">Button 5</button>
+        <a class="button btn-primary" href="{% url 'todo:todo_list' %}" role="button">Список дел</a>
+        <a class="button btn-primary" href="{% url 'todo:todo_form' %}" role="button">Создать дело</a>
+        <a class="button btn-primary" href="{% url 'todo:todo_list_success' %}" role="button">Выполненные</a>
+        <a class="button btn-danger" href="{% url 'todo:todo_list_unsuccess' %}" role="button">НЕ Выполненные</a>
     </div>
 </div>
 

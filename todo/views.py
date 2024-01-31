@@ -1,3 +1,4 @@
+from django.contrib.admin import ListFilter
 from django.urls import reverse
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 
@@ -40,3 +41,19 @@ class TodoDeleteView(DeleteView):
 
     def get_success_url(self):
         return reverse('todo:todo_list')
+
+
+class TodoListSuccessView(ListView):
+    model = Todo
+    template_name = 'todo/todo_list_success.html'
+
+    def get_queryset(self):
+        return Todo.objects.filter(completed=True)
+
+
+class TodoListUnSuccessView(ListView):
+    model = Todo
+    template_name = 'todo/todo_list_unsuccess.html'
+
+    def get_queryset(self):
+        return Todo.objects.filter(completed=False)
