@@ -6,7 +6,8 @@
     <title>TO-DO-LIST</title>
     <!-- Подключение Bootstrap CSS (если еще не подключено) -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          integrity="sha512-..." crossorigin="anonymous"/>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,17 +62,22 @@
     </style>
 </head>
 <body>
-<div class="container">
-    <h1>Welcome to TO-DO-LIST</h1>
 
-    <div class="button-container">
-        <a class="button btn-primary" href="{% url 'todo:todo_list' %}" role="button">Список дел</a>
-        <a class="button btn-primary" href="{% url 'todo:todo_form' %}" role="button">Создать дело</a>
-        <a class="button btn-primary" href="{% url 'todo:todo_list_success' %}" role="button">Выполненные</a>
+<div class="d-print-table-row">
+    <a class="btn btn-primary" href="{% url 'todo:index' %}" role="button">Главная</a>
+
+    {% if user.is_authenticated %}
+        <a class="btn btn-primary" href="{% url 'todo:todo_list' %}" role="button">Список дел</a>
+        <a class="btn btn-primary" href="{% url 'todo:todo_form' %}" role="button">Создать дело</a>
+        <a class="btn btn-primary" href="{% url 'todo:todo_list_success' %}" role="button">Выполненные</a>
         <a class="button btn-danger" href="{% url 'todo:todo_list_unsuccess' %}" role="button">НЕ Выполненные</a>
-    </div>
+        <a class="btn btn-danger" href="{% url 'todo:index' %}" role="button">Выйти</a>
+    {% else %}
+        <a class="btn btn-primary" href="{% url 'users:login' %}" role="button">Войти</a>
+        <a class="btn btn-primary" href="{% url 'users:register' %}" role="button">Регистрация</a>
+    {% endif %}
 </div>
-
+<h1 class="text-lg-center">Welcome to TO-DO-LIST</h1>
 {% block content %}
 {% endblock %}
 

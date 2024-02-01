@@ -9,6 +9,7 @@ from todo.models import Todo
 
 
 def index(request):
+
     return render(request, "todo/base.html")
 
 

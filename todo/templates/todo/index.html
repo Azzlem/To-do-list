@@ -1,0 +1,22 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+    <div class="container-fluid full-width-container">
+        <h1>Welcome to TO-DO-LIST</h1>
+        {% if user.is_authenticated %}
+            <div class="button-container">
+                <a class="btn btn-primary" href="{% url 'todo:index' %}" role="button">Выйти</a>
+                <a class="button btn-primary" href="{% url 'todo:todo_list' %}" role="button">Список дел</a>
+                <a class="button btn-primary" href="{% url 'todo:todo_form' %}" role="button">Создать дело</a>
+                <a class="button btn-primary" href="{% url 'todo:todo_list_success' %}" role="button">Выполненные</a>
+                <a class="button btn-danger" href="{% url 'todo:todo_list_unsuccess' %}" role="button">НЕ
+                    Выполненные</a>
+            </div>
+        {% else %}
+            <a class="btn btn-primary" href="{% url 'users:login' %}" role="button">Войти</a>
+            <a class="btn btn-primary" href="{% url 'users:register' %}" role="button">Регистрация</a>
+        {% endif %}
+    </div>
+
+{% endblock %}
